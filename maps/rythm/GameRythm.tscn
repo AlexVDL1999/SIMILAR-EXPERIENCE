@@ -1,0 +1,137 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://maps/rythm/NotePicker.tscn" type="PackedScene" id=1]
+[ext_resource path="res://maps/rythm/assets/Gris_Derecha.png" type="Texture" id=2]
+[ext_resource path="res://maps/rythm/assets/Gris_Abajo.png" type="Texture" id=3]
+[ext_resource path="res://maps/rythm/assets/Gris_Izquierda.png" type="Texture" id=4]
+[ext_resource path="res://maps/rythm/GameRythm.gd" type="Script" id=5]
+[ext_resource path="res://assets/MENU/Roboto-Bold.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "bad"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "good"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="GameRythm" type="Node"]
+script = ExtResource( 5 )
+
+[node name="NotePicker" parent="." instance=ExtResource( 1 )]
+position = Vector2( 371, 529 )
+line = 1
+
+[node name="Sprite" parent="NotePicker" index="0"]
+texture = ExtResource( 4 )
+
+[node name="NotePicker2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 499, 529 )
+__meta__ = {
+"_edit_group_": true
+}
+line = 2
+
+[node name="NotePicker3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 617, 531 )
+line = 3
+
+[node name="Sprite" parent="NotePicker3" index="0"]
+texture = ExtResource( 3 )
+
+[node name="NotePicker4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 740, 530 )
+line = 4
+
+[node name="Sprite" parent="NotePicker4" index="0"]
+texture = ExtResource( 2 )
+
+[node name="BarsHolder" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="." groups=["score"]]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 141.0
+margin_top = -109.0
+margin_right = 262.0
+margin_bottom = -37.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 1 )
+text = "0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+anims/RESET = SubResource( 2 )
+anims/bad = SubResource( 3 )
+anims/good = SubResource( 4 )
+
+[editable path="NotePicker"]
+[editable path="NotePicker2"]
+[editable path="NotePicker3"]
+[editable path="NotePicker4"]

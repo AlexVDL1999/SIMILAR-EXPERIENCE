@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/y2mate.com - Tokischa ROSALÍA  Linda REMIXFREE COPYRIGHT.mp3-0504c97bacefd61587dfb3bbe1b1af4f.mp3str"
+
+[deps]
+
+source_file="res://assets/y2mate.com - Tokischa ROSALÍA  Linda REMIXFREE COPYRIGHT.mp3"
+dest_files=[ "res://.import/y2mate.com - Tokischa ROSALÍA  Linda REMIXFREE COPYRIGHT.mp3-0504c97bacefd61587dfb3bbe1b1af4f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
